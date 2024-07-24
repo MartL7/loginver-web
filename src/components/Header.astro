@@ -69,6 +69,24 @@ const links: Link[] = [
       <div></div>
     </button>
   </div>
+
+  <nav class="hidden">
+    <ul class="flex flex-col gap-3 px-5">
+      {
+        links.map(({ href, label, text }) => (
+          <li>
+            <a 
+              href={href}
+              class="text-white hover:text-orange-400/90 transition"
+              aria-label={label}
+            >
+              {text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 </header>
 
 <style>
@@ -82,6 +100,10 @@ const links: Link[] = [
     transition: background-color 0.3s ease-in-out;
   }
 
+  .scroll-mobile {
+    background: linear-gradient(to bottom, rgb(120, 119, 198, 1) 0%, rgba(255,255,255,0));
+  }
+
   .scroll-header {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, transparent);
     backdrop-filter: blur(10px);
@@ -93,10 +115,10 @@ const links: Link[] = [
     justify-content: center;
     align-items: center;
     width: 2rem;
-    height: 2rem;
+    height: 1.2rem;
     border: 0;
     background: transparent;
-    gap: .30rem;
+    gap: .20rem;
   }
 
   .hamburguer-button.active div:first-child {
@@ -135,10 +157,20 @@ const links: Link[] = [
   window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
       $header.classList.add('scroll-header')
-      $headerMobile.classList.add('scroll-header')
+      $headerMobile.classList.add('bg-gray-950')
+      $headerMobile.classList.add('scroll-mobile')
     } else {
       $header.classList.remove('scroll-header')
-      $headerMobile.classList.remove('scroll-header')
+      $headerMobile.classList.remove('bg-gray-950')
+      $headerMobile.classList.remove('scroll-mobile')
     }
+  })
+
+  const $hamburguerButton = $('.hamburguer-button') as HTMLElement
+  const $nav = $('nav') as HTMLElement
+
+  $hamburguerButton.addEventListener('click', () => {
+    $hamburguerButton.classList.toggle('active')
+    $nav.classList.toggle('hidden')
   })
 </script>
