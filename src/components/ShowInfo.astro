@@ -1,0 +1,61 @@
+---
+import { products } from '@/const/products'
+import AddToCartIcon from '@/components/icons/AddToCart.astro'
+import Intro from '@/components/Intro.astro'
+---
+<main class="flex flex-col justify-center items-center gap-5 md:gap-10 lg:gap-20">
+
+  <Intro />
+
+  <article class="grid grid-cols-1 border border-white">
+    <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 border border-black">
+      {
+        products.map((product) => (
+          <div class="flex flex-col items-center justify-center gap-3">
+            <a 
+              href={`/products/${product.id}`}
+              aria-label={`Link con la imagen de ${product.name}`}
+              class="mb-5"
+            >
+              <img
+                decoding="async"
+                src={product.imageUrl}
+                alt={product.name}
+                loading="lazy"
+                class="size-full rounded-lg"
+              />
+              <h2 class="text-center font-bold text-xl text-orange-400/90">{product.name}</h2>
+            </a>
+            <p class="text-xs text-center text-pretty text-gray-300/90"> {product.description}</p>
+            <span class="text-center font-semibold text-red-300/90">${product.price} MXN</span>
+            <button class="">
+              <AddToCartIcon class="size-6" />
+            </button>
+          </div>
+        ))
+      }
+    </section>
+  </article>
+</main>
+
+<style>
+  button {
+    display: block;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  button:hover {
+    border-color: #646cff;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+</style>
