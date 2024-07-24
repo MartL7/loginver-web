@@ -8,7 +8,58 @@ import Intro from '@/components/Intro.astro'
 
   <Intro />
 
-  <article class="grid grid-cols-1">
+  <article class="grid grid-cols-1 gap-y-5">
+    <section class="grid grid-cols-1 md:grid-cols-3">
+      <picture class="hidden col-start-1 col-end-2 md:flex justify-center items-center">
+        <img 
+          decoding="async"
+          src="/img/recursos/gif-example.gif" 
+          alt="Gif saludando a los usuarios"
+        />
+      </picture>
+      
+      <article class="col-start-1 col-end-2 md:col-start-2 md:col-end-4">
+        <div class="swiper size-full">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                class="size-full rounded-lg"
+                decoding="async"
+                loading="lazy" 
+                decoding="async"
+                src="/img/recursos/slider/slider-image-3.webp" 
+                alt="Imagen del Carrusel de LOGIN Centro Mayorista"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                class="size-full rounded-lg"
+                decoding="async"
+                loading="lazy" 
+                decoding="async"
+                src="/img/recursos/slider/slider-image-2.webp" 
+                alt="Imagen del Carrusel de LOGIN Centro Mayorista"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                class="size-full rounded-lg"
+                decoding="async"
+                loading="lazy" 
+                decoding="async"
+                src="/img/recursos/slider/slider-image.webp" 
+                alt="Imagen del Carrusel de LOGIN Centro Mayorista"
+              />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        
+        </div>
+      </article>
+    </section>
     <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
       {
         products.map((product) => (
@@ -46,3 +97,27 @@ import Intro from '@/components/Intro.astro'
     </section>
   </article>
 </main>
+
+<script>
+  import Swiper from 'swiper/bundle'
+
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    speed: 600,
+    effect: 'fade',
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  })
+</script>
