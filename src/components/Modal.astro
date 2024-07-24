@@ -12,7 +12,7 @@ const { isButton, className, id, idModal } = Astro.props
 	class=`${className} items-center justify-center bg-transparent px-4 text-2xl text-white sm:px-0` 
   id={idModal}
 >
-	<div class="relative block size-full bg-transparent">
+	<div class="relative block w-auto sm:w-[50dvh] max-w-[50dvh] bg-transparent">
 		<section class="flex justify-center items-center gap-5 size-full">
 			<slot />
 		</section>
