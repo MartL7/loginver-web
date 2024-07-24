@@ -1,5 +1,6 @@
 ---
 import CartShop from '@/components/icons/CartShop.astro'
+import Modal from '@/components/Modal.astro'
 
 interface Link {
   href: string
@@ -48,21 +49,23 @@ const links: Link[] = [
 </header>
 
 <header class="flex justify-between items-center md:hidden" id="header-mobile">
-  <picture>
+  <figure>
     <img
       decoding="async" 
       src="/img/loginver-logo-small.webp" 
       alt="Logo de LOGIN Centro Mayorista"
       class="size-[100px]"
     />
-  </picture>
+  </figure>
+
+  <h2> LOGIN Mayorista </h2>
 
   <div class="flex justify-center items-center gap-3 px-5">
     <button>
       <CartShop class="text-red-200/90 size-6 hover:text-yellow-400/90 transition" />
     </button>
     
-    <button class="hamburguer-button" aria-label="Menú hamburguesa">
+    <button class="nav-button" aria-label="Menú hamburguesa">
       <div></div>
       <div></div>
       <div></div>
@@ -87,6 +90,47 @@ const links: Link[] = [
       }
     </ul>
   </nav>
+
+  <Modal className="menu-dialog" idModal="modal-menu" isButton={false}>
+    <div class="flex flex-col justify-center items-center gap-y-5">
+      <div class="flex w-full justify-between items-center">
+        <span> Menú </span>
+        <button class="hamburguer-button">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </button>
+      </div>
+      <hr
+        class="h-[2px] w-full border-t-0"
+        style="background:linear-gradient(to right, transparent 0%, white 50%, transparent 100%)"
+      />
+      <div> 
+        <img 
+          src="/img/loginver-logo-small.webp" 
+          alt="Logo de LOGIN Centro Mayorista" 
+          loading="lazy"
+          class="size-auto object-cover"
+          style="filter: drop-shadow(0 0 10px rgba(2, 2, 2, .9));" 
+        />
+      </div>
+      {
+        links.map(({ text, href, label }) => (
+          <hr
+            class={`h-[2px] w-full border-t-0 `}
+            style="background:linear-gradient(to right, transparent 0%, white 50%, transparent 100%)"
+          />
+          <a href={href} aria-label={label} class={`text-xl uppercase`}>{text}</a>
+        ))
+      }
+      <hr
+        class="h-[2px] w-full border-t-0"
+        style="background:linear-gradient(to right, transparent 0%, white 50%, transparent 100%)"
+      />
+    </div>
+  
+  </Modal>
 </header>
 
 <style>
@@ -109,39 +153,39 @@ const links: Link[] = [
     backdrop-filter: blur(10px);
   }
 
-  .hamburguer-button {
+  .hamburguer-button, .nav-button {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 2rem;
+    width: 1.5rem;
     height: 1.2rem;
     border: 0;
     background: transparent;
     gap: .30rem;
   }
 
-  .hamburguer-button.active div:first-child {
+  .hamburguer-button.active div:first-child, .nav-button.active div:first-child {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
   }
 
-  .hamburguer-button.active div:nth-child(2) {
+  .hamburguer-button.active div:nth-child(2), .nav-button.active div:nth-child(2) {
     opacity: 0;
   }
 
-  .hamburguer-button.active div:nth-child(3) {
+  .hamburguer-button.active div:nth-child(3), .nav-button.active div:nth-child(3) {
     opacity: 0;
   }
 
-  .hamburguer-button.active div:nth-child(4) {
-    transform: rotate(-31deg);
-    -webkit-transform: rotate(-31deg);
+  .hamburguer-button.active div:nth-child(4), .nav-button.active div:nth-child(4) {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
   }
 
-  .hamburguer-button > div {
+  .hamburguer-button > div, .nav-button > div {
     background: #FFF;
-    height: 2px;
+    height: 1px;
     width: 100%;
     transition: all .5s;
     transform-origin: left;
@@ -153,6 +197,12 @@ const links: Link[] = [
 
   const $header = $('header') as HTMLElement
   const $headerMobile = $('#header-mobile') as HTMLElement
+  const $modal = $('#modal-menu') as HTMLDialogElement
+
+  const $hamburguerButton = $('.nav-button') as HTMLButtonElement
+  const $hamburguerButtonModal = $('.hamburguer-button') as HTMLButtonElement
+
+  const $nav = $('nav') as HTMLElement
  
   window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
@@ -166,11 +216,17 @@ const links: Link[] = [
     }
   })
 
-  const $hamburguerButton = $('.hamburguer-button') as HTMLElement
-  const $nav = $('nav') as HTMLElement
-
   $hamburguerButton.addEventListener('click', () => {
+    $modal.showModal()
+
+    $hamburguerButtonModal.classList.toggle('active')
     $hamburguerButton.classList.toggle('active')
-    $nav.classList.toggle('hidden')
+
+    $hamburguerButtonModal.addEventListener('click', () => {
+      $hamburguerButtonModal.classList.remove('active')
+      $hamburguerButton.classList.remove('active')
+      $modal.close()
+    })
   })
+
 </script>
