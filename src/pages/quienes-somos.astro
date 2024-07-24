@@ -1,0 +1,30 @@
+---
+import Layout from "@/layouts/Layout.astro"
+---
+
+<Layout title="Quienes Somos - LOGIN Centro Mayorista">
+  <main class="flex justify-center items-center">
+    <article class="flex flex-col md:flex-row md:gap-10 h-auto justify-center items-center">
+      <picture>
+        <img 
+          decoding="async"
+          src="/img/recursos/acerca-de-image-2.webp" 
+          class="size-[400px] relative pointer-events-none opacity-30 md:opacity-100 rounded-lg" 
+          alt="Imagen de LOGIN Centro Mayorista"
+        />
+      </picture>
+    
+      <div class="flex absolute md:relative flex-col gap-y-4 text-center max-w-[350px]">
+          <h2 class="font-Dancing text-2xl lg:text-3xl text-orange-400/90 font-bold">
+              LOGIN Centro Mayorista
+          </h2>
+    
+          <p class="flex flex-col justify-center items-center text-pretty text-xl">
+            Es la marca registrada representativa en venta por lotes en devoluciones, liquidaciones y saldos de <span class="text-green-400/90 font-bold"> COMERCIALIZADORA LOGINVER SA DE CV</span>
+            <span class="text-yellow-400/90"> Fundada desde 2014</span>
+            esta empresa mexicana gestiona la logística inversa de saldos, devoluciones y liquidaciones de grandes retailers, <span class="text-purple-400/90">apoyando la reventa de productos y fomentando el comercio minorista entre emprendedores.</span>
+          </p>
+      </div>
+    </article>
+  </main>
+</Layout>
