@@ -1,18 +1,31 @@
 ---
 import CartShop from '@/components/icons/CartShop.astro'
 import Modal from '@/components/Modal.astro'
+import AboutIcon from '@/components/icons/Header/About.astro'
+import ContactIcon from '@/components/icons/Header/Contact.astro'
+import QuestionIcon from '@/components/icons/Header/Question.astro'
+import UserIcon from '@/components/icons/Header/User.astro'
 
 interface Link {
   href: string
   text: string
   label?: string
+  type?: 'question' | 'user' | 'contact' | 'about'
+}
+
+const linksIcons = {
+  question: QuestionIcon,
+  user: UserIcon,
+  contact: ContactIcon,
+  about: AboutIcon
 }
 
 const links: Link[] = [
   { href: '/', text: 'Inicio', label: 'Ir a la página de Inincio' },
-  { href: '/registro', text: 'Registro', label: 'Ir a la página de Registro' },
-  { href: '/contacto', text: 'Contacto', label: 'Ir a la página de Contacto' },
-  { href: '/quienes-somos', text: 'Nosotros', label: 'Ir a sobre nosotros' },
+  { href: '/preguntas', text: 'Preguntas', label: 'Ir a la página de Preguntas', type: 'question' },
+  { href: '/registro', text: 'Registro', label: 'Ir a la página de Registro', type: 'user' },
+  { href: '/contacto', text: 'Contacto', label: 'Ir a la página de Contacto', type: 'contact' },
+  { href: '/quienes-somos', text: 'Nosotros', label: 'Ir a sobre nosotros', type: 'about' },
 ]
 ---
 
@@ -73,22 +86,29 @@ const links: Link[] = [
     </button>
   </div>
 
-  <nav class="hidden">
+<!--   <nav class="hidden">
     <ul class="flex flex-col gap-3 px-5">
       {
-        links.map(({ href, label, text }) => (
-          <li>
-            <a 
-              href={href}
-              class="text-white hover:text-orange-400/90 transition"
-              aria-label={label}
-            >
-              {text}
-            </a>
-          </li>
-        ))
+        links.map(({ href, label, text, type }) => {
+          const IconComponent = linksIcons[type]
+
+          if (!IconComponent) return 
+
+          return (
+            <li>
+              <a 
+                href={href} 
+                class="text-orange-400/90 transition"
+                aria-label={label}
+              >
+                <IconComponent class="size-10 sm:size-12"/>
+                {text}
+              </a>
+            </li>
+          )
+        })
       }
-    </ul>
+    </ul> -->
   </nav>
 
   <Modal className="menu-dialog" idModal="modal-menu" isButton={false}>
@@ -116,13 +136,26 @@ const links: Link[] = [
         />
       </div>
       {
-        links.map(({ text, href, label }) => (
-          <hr
-            class={`h-[2px] w-full border-t-0 `}
-            style="background:linear-gradient(to right, transparent 0%, white 50%, transparent 100%)"
-          />
-          <a href={href} aria-label={label} class={`text-xl uppercase`}>{text}</a>
-        ))
+        links.map(({ text, href, label, type }) => {
+          const IconComponent = linksIcons[type]
+
+          if (!IconComponent) return
+
+          return (
+            <hr
+              class={`h-[2px] w-full border-t-0 `}
+              style="background:linear-gradient(to right, transparent 0%, white 50%, transparent 100%)"
+            />
+            <a 
+              href={href} 
+              aria-label={label} 
+              class={`text-xl group uppercase flex gap-3 justify-center items-center hover:text-orange-500/90`}
+            >
+              <IconComponent class="size-10 sm:size-12 group-hover:text-orange-300/90"/>
+              {text}
+            </a>
+          )
+        })
       }
       <hr
         class="h-[2px] w-full border-t-0"
@@ -144,6 +177,10 @@ const links: Link[] = [
     transition: background-color 0.3s ease-in-out;
   }
 
+  button:focus {
+    outline: none;
+  }
+
   .scroll-mobile {
     background: linear-gradient(to bottom, rgb(120, 119, 198, 1) 0%, rgba(255,255,255,0));
   }
@@ -163,6 +200,7 @@ const links: Link[] = [
     border: 0;
     background: transparent;
     gap: .30rem;
+    transition: all 0.5s ease;
   }
 
   .hamburguer-button.active div:first-child, .nav-button.active div:first-child {
@@ -217,10 +255,13 @@ const links: Link[] = [
   })
 
   $hamburguerButton.addEventListener('click', () => {
+    
     $modal.showModal()
-
-    $hamburguerButtonModal.classList.add('active')
-    $hamburguerButton.classList.add('active')
+   
+    requestAnimationFrame(() => {
+      $hamburguerButton.classList.add('active')
+      $hamburguerButtonModal.classList.add('active')
+    })
 
     $hamburguerButtonModal.addEventListener('click', () => {
       $hamburguerButtonModal.classList.remove('active')
