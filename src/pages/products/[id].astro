@@ -26,16 +26,16 @@ const { name, price, description, countProducts, imageUrl } = product
       </picture>
 
       <aside class="flex flex-col gap-5">
-        <h2 class="font-bold text-2xl md:text-3xl text-blue-300/90"> {name} </h2>
-        <h3 class="font-semibold text-xl md:text-2xl"> 
-          <span class="text-red-500/90">${price}</span> 
+        <h2 class="font-bold text-2xl md:text-3xl text-orange-500/90"> {name} </h2>
+        <h3 class="font-semibold text-lg md:text-2xl"> 
+          <span class="text-blue-400/90">${price}</span> 
           <span class="text-gray-500"> MXN </span>
         </h3>
         <p class="text-lg text-gray-300/90">
           {description}
         </p>
 
-        <p class="text-lg">
+        <p class="text-sm md:text-lg">
           <span class="font-semibold"> Código: </span>  DN2479 <!-- {code} -->
         </p>
 
@@ -54,13 +54,13 @@ const { name, price, description, countProducts, imageUrl } = product
       </aside>
     </section>
 
-    <section class="flex w-full flex-col gap-5 justify-center items-center">
+    <section class="mt-20 flex w-full flex-col gap-5 justify-center items-center">
       <h2 class="text-center text-orange-400/90 font-bold text-3xl"> {name} </h2>
       <div class="flex w-full justify-between items-center px-2 md:px-10">
-        <h2 class="font-semibold text-xl md:text-2xl">
+        <h2 class="font-semibold text-lg md:text-2xl">
           Costo Lote
         </h2>
-        <h2 class="font-bold text-xl md:text-2xl text-orange-400/90">
+        <h2 class="font-bold text-lg md:text-2xl text-gray-400/90">
           ${price} MXN
         </h2>
       </div>
@@ -71,10 +71,10 @@ const { name, price, description, countProducts, imageUrl } = product
       />
 
       <div class="flex w-full justify-between items-center px-2 md:px-10">
-        <h2 class="font-semibold text-xl md:text-2xl">
+        <h2 class="font-semibold text-lg md:text-2xl">
           Cantidad de Articulos
         </h2>
-        <h2 class="font-bold text-xl md:text-2xl text-blue-300/90">
+        <h2 class="font-bold text-lg md:text-2xl text-gray-400/90">
           {countProducts}
         </h2>
       </div>
@@ -85,11 +85,11 @@ const { name, price, description, countProducts, imageUrl } = product
       />
 
       <div class="flex w-full justify-between items-center px-2 md:px-10">
-        <h2 class="font-semibold text-xl md:text-2xl">
+        <h2 class="font-semibold text-lg md:text-2xl">
           Precio por Articulo
         </h2>
-        <h2 class="font-bold text-xl md:text-2xl">
-          <span id="price-piece" class="text-red-500/90"></span>
+        <h2 class="font-bold text-lg md:text-2xl">
+          <span id="price-piece" class="text-gray-400/90"></span>
         </h2>
       </div>
 
@@ -99,10 +99,10 @@ const { name, price, description, countProducts, imageUrl } = product
       />
 
       <div class="flex w-full justify-between items-center px-2 md:px-10">
-        <h2 class="font-semibold text-xl md:text-2xl">
+        <h2 class="font-semibold text-lg md:text-2xl">
           Condición
         </h2>
-        <h2 class="font-bold text-xl md:text-2xl text-blue-300/90">
+        <h2 class="font-bold text-lg md:text-2xl text-gray-400/90">
           Grado B
         </h2>
       </div>
@@ -113,10 +113,10 @@ const { name, price, description, countProducts, imageUrl } = product
       />
 
       <div class="flex w-full justify-between items-center px-2 md:px-10">
-        <h2 class="font-semibold text-xl md:text-2xl">
+        <h2 class="font-semibold text-lg md:text-2xl">
           Ubicación
         </h2>
-        <h2 class="font-bold text-xl md:text-2xl text-blue-300/90">
+        <h2 class="font-bold text-lg md:text-2xl text-gray-400/90">
          Sucursal Atlalico
         </h2>
       </div>
