@@ -23,6 +23,9 @@ importers:
       astro:
         specifier: ^4.12.2
         version: 4.12.2
+      swiper:
+        specifier: ^11.1.6
+        version: 11.1.6
       tailwind:
         specifier: ^4.0.0
         version: 4.0.0
@@ -2519,6 +2522,10 @@ packages:
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  swiper@11.1.6:
+    resolution: {integrity: sha512-4VX3/Ldj0wzE9TOAyFV0t9ecbaU92BbmIeYWEI5IIDt6Nyyr5RqgzZiS0q5G8pALWNCg+KsrStkfH/aMtzclPw==}
+    engines: {node: '>= 4.7.0'}
 
   tailwind@4.0.0:
     resolution: {integrity: sha512-LlUNoD/5maFG1h5kQ6/hXfFPdcnYw+1Z7z+kUD/W/E71CUMwcnrskxiBM8c3G8wmPsD1VvCuqGYMHviI8+yrmg==}
@@ -5755,6 +5762,8 @@ snapshots:
       has-flag: 3.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  swiper@11.1.6: {}
 
   tailwind@4.0.0:
     dependencies:
