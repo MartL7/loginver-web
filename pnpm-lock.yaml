@@ -20,6 +20,18 @@ importers:
       '@fontsource-variable/jost':
         specifier: ^5.0.19
         version: 5.0.19
+      '@fontsource-variable/oswald':
+        specifier: ^5.0.20
+        version: 5.0.20
+      '@fontsource-variable/public-sans':
+        specifier: ^5.0.19
+        version: 5.0.19
+      '@fontsource/merriweather':
+        specifier: ^5.0.13
+        version: 5.0.13
+      '@midudev/tailwind-animations':
+        specifier: ^0.0.7
+        version: 0.0.7(tailwindcss@3.4.6)
       astro:
         specifier: ^4.12.2
         version: 4.12.2
@@ -334,6 +346,15 @@ packages:
   '@fontsource-variable/jost@5.0.19':
     resolution: {integrity: sha512-+uQ2f14HeqlRWbAH3shJoVUxogX5EbQwQm9uccYjyaiHVeHzrAYlxOdvZT9jB8XgybxpeCf/mtSr4Qwuzl6VYA==}
 
+  '@fontsource-variable/oswald@5.0.20':
+    resolution: {integrity: sha512-b2aMbEwGUw/mV+Zowhvpd/bayF1gEZs/Qeo5P48l5gZrwSkcgmf5wtQzGrrzJNS0n3/aoUMlmTqOhnjKLQP7Bw==}
+
+  '@fontsource-variable/public-sans@5.0.19':
+    resolution: {integrity: sha512-Tc1V139visg0xUgSe2vQy86OwHEGb0dO57vcrD6Cw2vDRf42sZ4fD7nTuY0Q0AjVNemT7RicmkR9qnB/MfJ6ug==}
+
+  '@fontsource/merriweather@5.0.13':
+    resolution: {integrity: sha512-V/UsU+5yceDICBUJJXWCT+6xf5YpLIVUHfUjBQ+NNbllIhe3zaVZ1f3t5+fNKwvBzKBDa3RNMCofAdW7uzw08Q==}
+
   '@img/sharp-darwin-arm64@0.33.4':
     resolution: {integrity: sha512-p0suNqXufJs9t3RqLBO6vvrgr5OhgbWp76s5gTRvdmxmuv9E1rcaqGUsl3l4mKVmXPkTkTErXediAui4x+8PSA==}
     engines: {glibc: '>=2.26', node: ^18.17.0 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0', yarn: '>=3.2.0'}
@@ -472,6 +493,11 @@ packages:
   '@mapbox/node-pre-gyp@1.0.11':
     resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
     hasBin: true
+
+  '@midudev/tailwind-animations@0.0.7':
+    resolution: {integrity: sha512-K897X4NvM3tV2/R7aCjl6gJ6msWSTqQtcAwb5VX5D5+m/Mo650mEFoeODwqzaePYNro5BTGyXXFQw/kiHBZlUA==}
+    peerDependencies:
+      tailwindcss: ^3.0.0
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -3149,6 +3175,12 @@ snapshots:
 
   '@fontsource-variable/jost@5.0.19': {}
 
+  '@fontsource-variable/oswald@5.0.20': {}
+
+  '@fontsource-variable/public-sans@5.0.19': {}
+
+  '@fontsource/merriweather@5.0.13': {}
+
   '@img/sharp-darwin-arm64@0.33.4':
     optionalDependencies:
       '@img/sharp-libvips-darwin-arm64': 1.0.2
@@ -3264,6 +3296,10 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
+
+  '@midudev/tailwind-animations@0.0.7(tailwindcss@3.4.6)':
+    dependencies:
+      tailwindcss: 3.4.6
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
