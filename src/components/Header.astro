@@ -219,8 +219,8 @@ const links: Link[] = [
   $hamburguerButton.addEventListener('click', () => {
     $modal.showModal()
 
-    $hamburguerButtonModal.classList.toggle('active')
-    $hamburguerButton.classList.toggle('active')
+    $hamburguerButtonModal.classList.add('active')
+    $hamburguerButton.classList.add('active')
 
     $hamburguerButtonModal.addEventListener('click', () => {
       $hamburguerButtonModal.classList.remove('active')
