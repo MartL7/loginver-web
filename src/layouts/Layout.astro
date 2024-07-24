@@ -1,51 +1,65 @@
 ---
+// Supports weights 100-900
+import '@fontsource-variable/jost'
+import ButtonTop from '@/components/ButtonTop.astro'
+import ButtonWhatsapp from '@/components/ButtonWhatsapp.astro'
+import Footer from '@/components/Footer.astro'
+import Call from '@/components/Call.astro'
+import Header from '@/components/Header.astro'
+
 interface Props {
-	title: string;
+	title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
+	<body class="relative">
+		
+		<div 
+			class="fixed left-0 top-0 -z-10 size-full"
+			>
+			<div class="relative size-full bg-slate-950"><div class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div></div>
+		</div>
+
+		<div class="mx-auto min-h-screen max-w-6xl px-2 lg:px-10">
+			<Header />
+			<slot />
+			<Call />
+			<Footer />
+			<ButtonTop />
+			<ButtonWhatsapp />
+		</div>
+		
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		-color-primary: #ddd;
+    --color-secondary: #333;
+    --color-accent: #b4cd02;
+    --color-accent-rgb: 213, 255, 0;
+
+    --background-color: #141800;
+    --background-twitch: var(--color-twitch-ice);
+
+    --color-twitch: #9146ff;
+    --color-twitch-ice: #f0f0ff;
+
+		color-scheme: dark;
 	}
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+		font-family: 'Jost Variable', system-ui, sans-serif;
+		scroll-behavior: smooth;
 	}
 </style>
